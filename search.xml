@@ -1,22 +1,568 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title><![CDATA[Android 字节码解析]]></title>
-      <url>/2022/04/08/Android-%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E6%9E%90/</url>
-      <content type="html"><![CDATA[<h2 id="Dalvik字节码格式"><a href="#Dalvik字节码格式" class="headerlink" title="Dalvik字节码格式"></a>Dalvik字节码格式</h2><p>move vA, vB</p>
+<search>
+  <entry>
+    <title>Android 字节码解析</title>
+    <url>/2022/04/08/Android-%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="Dalvik字节码格式"><a href="#Dalvik字节码格式" class="headerlink" title="Dalvik字节码格式"></a>Dalvik字节码格式</h2><p>move vA, vB</p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> Android </tag>
-            
-        </tags>
-        
-    </entry>
-    
-  
-  
+      <categories>
+        <category>开发</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统</title>
+    <url>/2022/04/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>数据结构</title>
+    <url>/2022/04/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h2 id="一-数据结构与算法分析的基本概念"><a href="#一-数据结构与算法分析的基本概念" class="headerlink" title="一. 数据结构与算法分析的基本概念"></a>一. 数据结构与算法分析的基本概念</h2><h3 id="（一）数据结构的基本概念"><a href="#（一）数据结构的基本概念" class="headerlink" title="（一）数据结构的基本概念"></a>（一）数据结构的基本概念</h3><ol>
+<li>数据<br>数据是信息的载体，是描述客观事物属性的数字、字符以及所有能输入到计算机中被程序识别和处理的符号的集合</li>
+<li>数据元素<br> 数据元素是数据的基本单位，一个数据元素由若干个 <code>数据项</code> 组成，<strong>数据项是数据元素中不可分割的最小单位</strong>。</li>
+<li>数据对象<br> <strong>数据对象是具有相同性质的数据元素的集合</strong>，是数据的一个子集。</li>
+<li>数据类型<br> 数据类型是一个值的集合和定义在此集合上的一组操作的统称<ul>
+<li>原子类型：值不可再分的数据类型</li>
+<li>结构类型：值可以再分解为若干分量的数据类型</li>
+<li>抽象数据类型(ADT) ：抽象数据组织以及相关操作，可以用抽象数据类型定义一个完整的数据结构</li>
+</ul>
+</li>
+<li>数据结构<br> 数据结构是相互之间存在一种或多种特定关系的数据元素的集合。数据元素之间的关系被称为结构。数据结构包括：<strong>逻辑结构、存储结构、数据运算</strong>。<br> 数据的逻辑结构和存储结构是密不可分的两个方面，一个算法的设计取决于所选定的逻辑结构，而算法的实现依赖于所采用的存储结构。</li>
+<li>数据结构的三要素<ol>
+<li>数据的逻辑结构<br>逻辑结构是指数据元素之间的逻辑关系，即从逻辑关系上描述数据。<em><strong>它与数据的存储无关</strong></em>，是独立于计算机的。数据的逻辑结构分为线性结构和非线性结构，线性表就是典型的线性结构；集合、树、图就是典型的非线性结构。<ul>
+<li>集合：结构中的数据之间除了“同属于一个集合”之外，没有别的关系</li>
+<li>线性结构：结构中的数据元素之间只存在一对一的关系</li>
+<li>树形结构：结构中的数据元素之间存在一对多的关系</li>
+<li>图或网状结构：结构中的数据元素之间存在多对多的关系</li>
+</ul>
+</li>
+<li>数据的存储结构<br> 存储结构是指数据结构再计算机中的表示，也称物理结构。它包括数据安苏的表示和关系的表示。数据的存储结构是用计算机语言实现的逻辑结构，它依赖于计算机语言。数据的存储结构主要有顺寻存储、链式存储、索引存储和散列存储<ul>
+<li>顺序存储：把逻辑上相邻的元素存储在物理位置上也相邻的存储单元中，元素之间的关系由存储单元的邻接关系来体现。其优点是可以实现随机存取，每个元素占用最小的存储空间，缺点是只能使用相邻的一整块存储单元，因此可能产生较多外部碎片</li>
+<li>链式存储：不要求逻辑上相邻的元素在物理位置上也相邻，借助指示元素存储地址的指针来表示元素之间的逻辑关系。其优点是不会出现碎片现象，能充分利用所有存储单元；缺点是每个元素因存储指针而占用额外的存储空间，且只能实现顺序存取。</li>
+<li>索引存储：在存储元素信息的同时还建立附加的索引表。索引表中的每项称为索引项，索引项的一般形式是(关键字：地址)。其优点是检索速度快，缺点是附加的索引表额外占用存储空间。另外，增加和删除数据时也要修改索引表，因此比较耗时。</li>
+<li>散列存储(哈希存储)：根据元素的关键字直接计算出该元素的存储地址。其优点是减速、增加和删除节点的操作都很快；缺点是如果散列函数不好，则可能出现元素存储单元冲突，解决冲突则需要许多额外的时间和空间开销。</li>
+</ul>
+</li>
+<li>数据的运算<br> 施加在数据上的运算包括运算的定义和实现。运算的定义是针对逻辑机构，支出运算的功能；运算的实现是针对存储结构的，指出运算的具体操作步骤。</li>
+</ol>
+</li>
+</ol>
+<h3 id="（二）渐近算法分析方法"><a href="#（二）渐近算法分析方法" class="headerlink" title="（二）渐近算法分析方法"></a>（二）渐近算法分析方法</h3><ol>
+<li><p>算法的基本概念<br>算法是对特定问题求解的一种描述，它是指令的有限序列，其中的每条指令代表一个或多个操作。此外，一个算法还具有下列五个重要特性：</p>
+<ol>
+<li>有穷性：一个算法必须总在执行完有穷步之后结束，且每一步都可再有穷时间内完成。</li>
+<li>确定性：算法中的每条指令必须有确切的含义，对于相同的输入只能得到相同的输出</li>
+<li>可行性：算法中描述的操作的可以通过已有实现的基本运算执行有限次来实现</li>
+<li>输入：输入取自某个特定的对象的集合</li>
+<li>输出：一个算法有一个或多个输出，这些输出是与输入有着某种特定关系的量<br>通常一个好的算法应该达到：</li>
+<li>正确性：答案得是对的</li>
+<li>可读性：助于人们理解</li>
+<li>健壮性： 输入非法数据时能作出恰当的反应，没啥bug</li>
+<li>效率与低存储量需求：又快又好地执行</li>
+</ol>
+</li>
+<li><p>算法效率的度量<br>算法效率的度量是通过时间复杂度和空间复杂度来描述的</p>
+</li>
+</ol>
+<h3 id="（三）时间复杂度"><a href="#（三）时间复杂度" class="headerlink" title="（三）时间复杂度"></a>（三）时间复杂度</h3><ol>
+<li><p>时间复杂度<br> 一个语句的频度是指该语句在算法中被重复执行的次数，算法中所有语句频度之和记为$T(n)$，它是该算法问题规模$n$的函数，时间复杂度主要分析$T(n)$的数量级。算法中基本运算(最深层循环内的语句)的频度与$T(n)$同数量级，因此通常采用算法中基本运算的频度$f(n)$(取$f(n)$中增长最快的项，比如$f(n)&#x3D;an^3+bn^2+cn$,则取$n^3$)来分析算法的时间复杂度。故算法的时间复杂度记为：$$T(n)&#x3D;O(f(n))$$。  </p>
+<p> 算法的时间复杂度不仅取决于问题规模$n$，也取决于待输入数据的性质。  </p>
+<p> 分析程序的时间复杂性的两条规则：</p>
+<ol>
+<li>加法规则 :$T(n)&#x3D;T_1(n)+T_2(n)&#x3D;O(f(n))+O(g(n))&#x3D;O(max(f(n),g(n))$</li>
+<li>乘法规则 :$T(n)&#x3D;T_1(n)*T_2(n)&#x3D;O(f(n))*O(g(n))&#x3D;O(f(n)*g(n))$<br> 常见的渐进时间复杂度有<br> $$\<br> O(1)&lt;O(log_2 n)&lt;O(n)&lt;O(nlog_2 n)&lt;O(n^2)&lt;O(n^3)&lt;O(2^n)&lt;O(n!)&lt;O(n^n)<br> $$</li>
+</ol>
+</li>
+</ol>
+<h3 id="（四）空间复杂度"><a href="#（四）空间复杂度" class="headerlink" title="（四）空间复杂度"></a>（四）空间复杂度</h3><ol>
+<li><p>空间复杂度<br> 算法的空间复杂度$S(n)$定义为该算法所耗费的存储空间，它是问题规模$n$的函数。记为$S(n)&#x3D;O(g(n))$ 。  </p>
+<p> 一个程序在执行时除了需要存储空间来存放本身所用的指令、常数、变量和输入数据之外，还需要一些对数据进行操作的工作单元和存储一些为实现计算所需信息的辅助空间。若输入数据所占空间只取决于问题本身，和算法无关，则只需分析除输入和程序之外的额外空间。 </p>
+<p> 算法原地工作指算法所需的辅助空间为常量，即$O(1)$</p>
+</li>
+</ol>
+<hr>
+<h2 id="二-线性表-栈和队列"><a href="#二-线性表-栈和队列" class="headerlink" title="二. 线性表. 栈和队列"></a>二. 线性表. 栈和队列</h2><h3 id="（一）线性表的定义和基本操作的设计"><a href="#（一）线性表的定义和基本操作的设计" class="headerlink" title="（一）线性表的定义和基本操作的设计"></a>（一）线性表的定义和基本操作的设计</h3><p>线性表是具有相同数据类型的n个数据元素的有限序列，其中n为表长，当$n&#x3D;0$时线性表是一个空表。若用$L$命名线性表，则其表示为：$L&#x3D;(a_1,a_2,a_3,a_4,a_5…,a_i,…,a_n)$，式中，$a_1称为表头元素，$a_n$称为表为元素，除第一个元素外，所有元素都只有一个直接前驱，除最后一个元素外，所有元素都只有一个直接后驱。</p>
+<p>故线性表的特点如下：</p>
+<ul>
+<li>表中元素个数有限</li>
+<li>表中元素具有逻辑上的顺序，元素之间有其先后顺序</li>
+<li>表中元素都是数据元素，每个元素都是单个元素</li>
+<li>表中元素的数据类型都相同，即每个元素占有相同大小的存储空间</li>
+<li>表中元素具有抽象性，即仅讨论元素之间的逻辑关系，而不考虑元素究竟表示什么内容</li>
+</ul>
+<p>线性表的基本操作:</p>
+<ul>
+<li>InitList(&amp;L):初始化</li>
+<li>Length(&amp;L):求表长</li>
+<li>LocateElem(L,e)：按值查找操作。在表L中查找具有给定关键字值的元素</li>
+<li>GetElem(L,i)：按位查找操作。返回表中第i个位置的元素</li>
+<li>ListInsert(&amp;L,i,e)：插入操作。在表L中的第i个位置上插入指定元素e</li>
+<li>ListDelete(&amp;L,i,&amp;e)：删除操作。删除表L中第i个位置的怨怒是，并用e返回删除元素的值</li>
+<li>PrintList(L)：输出操作。按前后顺序输出线性表L的所有元素值</li>
+<li>Empty(L)：判空操作。若L为空表，返回true，否则返回false</li>
+<li>DestroyList(&amp;L)：销毁操作。释放内存空间</li>
+</ul>
+<h3 id="（二）线性表的顺序存储结构和链式存储结构实现"><a href="#（二）线性表的顺序存储结构和链式存储结构实现" class="headerlink" title="（二）线性表的顺序存储结构和链式存储结构实现"></a>（二）线性表的顺序存储结构和链式存储结构实现</h3><h4 id="顺序表的定义"><a href="#顺序表的定义" class="headerlink" title="顺序表的定义:"></a>顺序表的定义:</h4><p>  线性表的顺序存储又称顺序表。它是用一组地址连续的存储单元一次存储线性表中的数据元素，从而使得逻辑上相邻的两个元素在物理位置上也相邻。第一个元素存储在线性表的起始位置，第i个元素存储在线性表的第i个位置，紧接着便是第i+1个元素，称i为元素$a_i$在线性表中的位序。因此，<code>顺序表的特点式表中元素的逻辑顺序与其物理顺序相同</code>。</p>
+<p>  每个数据元素的存储位置都和线性表的起始位置相差一个和该数据元素的位序成正比的查那个书，因此<code>线性表中的任意数据元素都可以随机存取</code>。通常用高级程序设计语言中的数组来描述线性表的顺序存储结构。</p>
+<pre><code>线性表中的位序是从1开始的，而数组下标式从0开始的
+</code></pre>
+<p>静态分配的线性表的顺序存储类型可以被表述为：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 50         <span class="comment">//线性表的最大长度</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    ElemType data[MaxSize];<span class="comment">//顺序表的元素</span></span><br><span class="line">    <span class="type">int</span> length;            <span class="comment">//顺序表当前的长度</span></span><br><span class="line">&#125;SqList                    <span class="comment">//顺序表的类型定义</span></span><br></pre></td></tr></table></figure>
+<p>动态分配的线性表的顺序存储类型可以被表述为：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> InitSize 50        <span class="comment">//线性表的初始长度</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    ElemType *data         <span class="comment">//顺序表的元素</span></span><br><span class="line">    <span class="type">int</span> length;            <span class="comment">//顺序表当前的长度</span></span><br><span class="line">&#125;SqList                    <span class="comment">//顺序表的类型定义</span></span><br></pre></td></tr></table></figure>
+<p>动态分配的线性表初始化时需要对data进行内存空间分配，分配空间大小可以动态变化，若空间不足，可以额外申请一块更大的连续内存将数据复制过去后，再释放原内存，但前提是系统内存空间足够。</p>
+<p>顺序表最主要的特点是随机访问，访问指定序号的元素的时间复杂度为$O(1)$</p>
+<p>顺序表的存储密度高，每个节点只存储数据元素，没有额外的指针域。</p>
+<h4 id="单链表的定义"><a href="#单链表的定义" class="headerlink" title="单链表的定义:"></a>单链表的定义:</h4><ul>
+<li><p>线性表的链式表示:</p>
+<pre><code>顺序表可以随时存取表彰的任意一个元素，它的存储位置可以用一个简单直观的公式表示，但插入和删除操作需要移动大量元素。链式存储线性表时，不需要使用地址连续的存储单元，即不要求逻辑上相邻的元素在物理位置上也相邻，它通过“链”建立起数据元素之间的逻辑关系，因此插入和删除操作不需要移动怨怒是，而只需要修改指针，但也会失去顺序表可以随机存取的优势。
+</code></pre>
+</li>
+</ul>
+<p>线性表的链式存储又称为单链表，它是指通过一组任意的存储单元来存储线性表中的数据元素。为了建立数据元素之间的线性关系，对每个链表节点，除存放元素自身的信息外，还需要存放一个指向其后继的指针。单链表节点描述为：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">next</span>;</span></span><br><span class="line">)LNode,*LinkList;</span><br></pre></td></tr></table></figure>
+
+<p>利用单链表可以解决顺序表需要大量连续存储单元的缺点，但单链表附加指针域，也存在浪费空间的缺点。由于节点的离散存储，所以单链表不支持随机存取。</p>
+<p>通常用头指针来标识一个单链表，如单链表L，头指针为NULL时表示一个空表。此外为了操作方便，在第一个存储数据的节点之前附加一个节点，称为头节点，头节点可以存储单链表长度，也可以不存储任何信息。</p>
+<h3 id="（三）线性表的应用"><a href="#（三）线性表的应用" class="headerlink" title="（三）线性表的应用"></a>（三）线性表的应用</h3><h3 id="（四）栈和队列的基本概念和基本操作的设计"><a href="#（四）栈和队列的基本概念和基本操作的设计" class="headerlink" title="（四）栈和队列的基本概念和基本操作的设计"></a>（四）栈和队列的基本概念和基本操作的设计</h3><h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><ol>
+<li>栈的定义：栈是只允许在一端进行插入或删除操作的线性表</li>
+<li>栈顶：线性表允许进行删除的那一端</li>
+<li>栈底：固定的，不允许进行插入和删除的一端</li>
+<li>空栈：不含任何元素的空表</li>
+<li>栈的数学性质：$n个不同元素进栈，出栈不同排列组合的个数为 \frac{1}{(n+1)} C^{n}_{2n} $ 。上述公式称为<code>卡特兰数</code>。</li>
+<li>栈的基本操作<ol>
+<li>InitStack(&amp;S):初始化</li>
+<li>StackEmpty(S):判断是否为空，若是则返回true，若不是则返回false</li>
+<li>Push(&amp;S,x):进栈，若栈S未满则将x加入使之成为新的栈顶</li>
+<li>Pop(&amp;S,&amp;x):出栈，若栈非空，则弹出栈顶元素，并用x返回</li>
+<li>GetTop(S,&amp;x):读取栈顶元素</li>
+<li>DestroyStack(&amp;S):销毁栈<br>若题干未限制，则可以直接使用这些基本操作函数</li>
+</ol>
+</li>
+</ol>
+<h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><ol>
+<li>队列的定义：队列简称队，是一种操作受限制的线性表，只允许在表的一端插入，另一端进行删除。</li>
+<li>入队(进队)：向表中进行数据插入</li>
+<li>出队(离队)：向表中进行数据删除</li>
+<li>队列的基本操作<ol>
+<li>InitQueue(&amp;Q):初始化队列</li>
+<li>QueueEmpty(Q):判断是否为空</li>
+<li>EnQueue(&amp;Q,x):入队，若队列Q未满，则将x加入使之成为新的队尾</li>
+<li>DeQueue(&amp;Q,&amp;x):出队，若队列Q非空，删除队头元素，并用x返回。</li>
+<li>GetHead(!,&amp;x):读取队头元素，若队列非空则将队头元素赋值给x</li>
+</ol>
+</li>
+</ol>
+<h3 id="（五）栈和队列的顺序存储结构和链式存储结构实现"><a href="#（五）栈和队列的顺序存储结构和链式存储结构实现" class="headerlink" title="（五）栈和队列的顺序存储结构和链式存储结构实现"></a>（五）栈和队列的顺序存储结构和链式存储结构实现</h3><h4 id="栈的存储结构"><a href="#栈的存储结构" class="headerlink" title="栈的存储结构"></a>栈的存储结构</h4><ol>
+<li><p>顺序存储结构</p>
+<ol>
+<li>实现<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> Maxsize 50 <span class="comment">//栈中元素的最大个数</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">   ElemenType data[MaxSize]; <span class="comment">//存放栈中元素</span></span><br><span class="line">   <span class="type">int</span> top; <span class="comment">//栈顶指针</span></span><br><span class="line">&#125; SqStack;</span><br></pre></td></tr></table></figure></li>
+<li>栈空条件：top &#x3D; -1(若栈顶指针指向下一个空闲空间，则top &#x3D; 0)；栈满条件：top &#x3D; Maxsize -1; 栈长：top + 1;</li>
+<li>由于顺序栈的入栈操作受到数组上界的约束，当对栈的最大使用空间估计不足时，有可能发生栈上溢。</li>
+</ol>
+</li>
+<li><p>链式存储结构</p>
+<ol>
+<li>实现<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LinkNode</span> &#123;</span><br><span class="line">   ElemType data;</span><br><span class="line">   <span class="keyword">struct</span> <span class="title class_">LinkNode</span> *next;</span><br><span class="line">&#125; *LiStack; <span class="comment">//相当于LinkNode*</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h4 id="队列的存储结构"><a href="#队列的存储结构" class="headerlink" title="队列的存储结构"></a>队列的存储结构</h4><ol>
+<li>顺序存储<ol>
+<li>实现<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> Maxsize 50</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">   ElemType data[Maxsize];</span><br><span class="line">   <span class="type">int</span> front,rear;</span><br><span class="line">&#125; SqQueue;</span><br></pre></td></tr></table></figure></li>
+<li>初始状态(队空条件)：front &#x3D;&#x3D; rear &#x3D;&#x3D; 0;进队操作：队不满时，先将值送到队尾元素，再将队尾指针加1；出队操作:先将值取出，再将队头指针加1</li>
+<li>普通队列不能用rear &#x3D;&#x3D; Maxsize 判空，会出现假溢出</li>
+<li>循环队列的队列长度：(rear+Maxsize-front)%Maxsize (rear指向的是下一个空余空间，所以在没有超出Maxsize的情况下实际长度是(rear-front)-1)；循环队列的队首指针：front &#x3D; (front+1)%Maxsize ；循环队列的队尾指针：rear &#x3D; (rear+1)%Maxsize</li>
+<li>循环队列判断队满<ol>
+<li>牺牲一个单元，规定rear+1 &#x3D; front ，即尾指针的下一个单元是头指针时为满；此时队满条件为：(rear+1)%Maxsize &#x3D; front;队空条件仍为：front &#x3D;&#x3D; rear;队长为：(rear-front+Maxsize)%Maxsize</li>
+<li>类型中新增表示元素个数的数据成员size，表示队满的条件则为size &#x3D;&#x3D; Maxsize</li>
+<li>类型中新增tag数据成员，以区分是队满还是队空。tag &#x3D;&#x3D; 0时，若因删除导致front &#x3D;&#x3D; rear则为队空；tag &#x3D;&#x3D; 1时，若因插入导致front &#x3D;&#x3D; rear，则为队满。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="（六）栈和队列的应用"><a href="#（六）栈和队列的应用" class="headerlink" title="（六）栈和队列的应用"></a>（六）栈和队列的应用</h3><hr>
+<h2 id="三-二叉树和树"><a href="#三-二叉树和树" class="headerlink" title="三. 二叉树和树"></a>三. 二叉树和树</h2><h3 id="（一）二叉树"><a href="#（一）二叉树" class="headerlink" title="（一）二叉树"></a>（一）二叉树</h3><ol>
+<li><p>二叉树的定义及其主要特征</p>
+<ol>
+<li>二叉树是另一种树形结构，其特点是每个结点至多只有两颗子树（即二叉树中不存在度大于2的结点），并且二叉树的子树有左右之分，其次序不能随意颠倒。<br>与树相似，二叉树也以递归的形式定义。二叉树是$n(n \geq 0)$个结点的有限集合：  <ol>
+<li>或者为空二叉树，即$n&#x3D;0$</li>
+<li>或者由一个根节点和两个互不相等的被称为根的左子树和右子树组成。左子树和右子树又分别是一棵二叉树</li>
+</ol>
+</li>
+</ol>
+<p><em><strong>二叉树是有序树</strong></em>，若其左、右子树颠倒，则成为另一颗不同的二叉树，即使树中结点只有一棵子树，也要区分它是左子树还是右子树。</p>
+<ul>
+<li>满二叉树：<ul>
+<li>高度为$h$且结点数为$2^h -1$的二叉树。即树中每层的结点都是满的。</li>
+<li>满二叉树的叶子结点均在最下一层，且除叶子结点外每个节点的度均为2 。</li>
+<li>满二叉树的编号：<ul>
+<li>从根节点开始（根节点为1），自上到下，从左到右依次排号。</li>
+<li>若编号为$i$的子节点有双亲，则双亲编号为$i&#x2F;2(向上取整)$，左孩子结点编号为$2 \times i$，右孩子的结点编号为$2i +1$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>完全二叉树：<ul>
+<li>高度为$h$、有$n$个结点的二叉树，当且仅当其每个结点都与高度$h$的满二叉树中编号为$1 \to n$的结点一一对应时称为完全二叉树（人话版：所有节点的序号排列都和满二叉树里的排列一样）</li>
+<li>若$i \leq {n&#x2F;2 \ \ (舍去小数取整)}$，则有结点$i$为分支节点，否则必为叶子结点。因为要一一对应的话，就会和满二叉树类似叶子结点几乎分布于最底层。</li>
+<li>叶子结点只可能在层次最大的两层上出现，最大层次中的叶子结点都依次排列在最左侧的位置上。意即从最底层的最左侧开始分布，一直排列到最右侧，排满了就是满二叉树了嗷。</li>
+<li><strong>若有度为1的结点，则只可能有1个，且该结点只有左孩子。</strong></li>
+<li>按层序编号后，一旦出现某节点为叶子结点或只有左孩子，则编号大于该节点的均为叶子结点（上一条性质为原理）</li>
+<li>若$n$为奇数，则每个分支结点都有左孩子和右孩子，若$n$为偶数，则编号最大的分支结点（编号为$n&#x2F;2$）只有左孩子，没有右孩子，其余分支结点左右孩子都有。</li>
+</ul>
+</li>
+<li>二叉排序树：<ul>
+<li>左子树上所有结点的关键字均小于根节点的关键字；右子树上所有结点的关键字均大于根节点的关键字；左子树和右子树又各是一颗二叉排序树。</li>
+</ul>
+</li>
+<li>平衡二叉树：<ul>
+<li>树上任意结点的左子树和右子树的深度之差不超过1 。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>二叉树的顺序存储结构和链式存储结构实现</p>
+<ol>
+<li><p>顺序结构存储<br>二叉树的顺序存储结构是指用一组地址连续的存储单元依次<code>自上而下、自左向右</code>地存储完全二叉树上地结点，即<code>将完全二叉树上编号为$i$地结点存储在一维数组下标为$i-1$中</code></p>
+<p>依据二叉树的性质，<code>完全二叉树和满二叉树采用顺序存储更加合适</code>，树中结点的序号可以唯一反应结点的逻辑关系，这样既能节省存储空间，又能利用数组元素的下标值迅速地确定结点在二叉树中的位置。</p>
+<p>但一般的二叉树中的空结点则需要在数组中相应位置进行补0，由此可能造成较大存储空间浪费</p>
+</li>
+<li><p>链式结构存储<br>使用结构体或类构建结点：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">BiTNode</span>&#123;</span><br><span class="line">   ElemType data;</span><br><span class="line">   <span class="keyword">struct</span> <span class="title class_">BiTNode</span> *lchild,*rchild;</span><br><span class="line">&#125;BiTNode,*BiTree</span><br></pre></td></tr></table></figure>
+<p>在含有$n$个结点的二叉链表中，含有$n+1$个空链域。</p>
+</li>
+</ol>
+<p>使用不同存储结构时，实现二叉树的操作算法也会不同，因此要根据实际应用场景选择合适的存储结构</p>
+</li>
+<li><p>二叉树的遍历及应用<br>二叉树的遍历指按照某条搜索路径访问树中的每个节点，使得每个节点均被访问一次，而且仅被访问一次。由于二叉树是一种非线性结构，每个节点都可能有两颗子树，因此还需要寻找一种规律，以便使二叉树上的结点能排列在一个线性队列上，进而进行遍历。</p>
+<p>常见的遍历次序有：先序(NLR)、中序(LNR)、后续(LRN)三种遍历算法，其中的序指的是根节点何时被访问，需要注意的是，左节点永远先于右节点被访问。</p>
+<h4 id="1、-先序遍历"><a href="#1、-先序遍历" class="headerlink" title="1、 先序遍历"></a>1、 先序遍历</h4><ul>
+<li>若二叉树为空，则直接返回</li>
+<li>先访问根节点</li>
+<li>先序遍历左子树</li>
+<li>先序遍历右子树</li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">PerOrder</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(T != <span class="literal">NULL</span>) &#123;</span><br><span class="line">      <span class="built_in">visit</span>(T);</span><br><span class="line">      <span class="built_in">PerOrder</span>(T-&gt;lchild);</span><br><span class="line">      <span class="built_in">PerOrder</span>(T-&gt;rchild);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、-中序遍历"><a href="#2、-中序遍历" class="headerlink" title="2、 中序遍历"></a>2、 中序遍历</h4><ul>
+<li>若二叉树为空，直接返回</li>
+<li>中序遍历左子树</li>
+<li>访问根节点</li>
+<li>中序遍历右子树</li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">InOrder</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(T != <span class="literal">NULL</span>) &#123;</span><br><span class="line">      <span class="built_in">InOrder</span>(T-&gt;lchild);</span><br><span class="line">      <span class="built_in">visit</span>(T);</span><br><span class="line">      <span class="built_in">InOrder</span>(T-&gt;rchild)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、-后序遍历"><a href="#3、-后序遍历" class="headerlink" title="3、 后序遍历"></a>3、 后序遍历</h4><ul>
+<li>后序遍历左子树</li>
+<li>后序遍历右子树</li>
+<li>访问根节点</li>
+</ul>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">PostOrder</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(T != BULL) &#123;</span><br><span class="line">      <span class="built_in">PostOrder</span>(T-&gt;lchild);</span><br><span class="line">      <span class="built_in">PostOrder</span>(T-&gt;rchild);</span><br><span class="line">      <span class="built_in">visit</span>(T);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>三种遍历算法中，不管采用哪种遍历算法，每个节点都访问一次且仅访问一次，故时间复杂度都是$O(n)$，在递归遍历中，递归工作栈的深度恰好为树的深度，故最坏情况下遍历算法的空间复杂度为$O(n)$。</p>
+<h3 id="递归算法和非递归算法的转换"><a href="#递归算法和非递归算法的转换" class="headerlink" title="递归算法和非递归算法的转换"></a>递归算法和非递归算法的转换</h3><h4 id="中序遍历："><a href="#中序遍历：" class="headerlink" title="中序遍历："></a>中序遍历：</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">InOrder2</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">   <span class="built_in">InitStack</span>(S);</span><br><span class="line">   BiTree p = T;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span>(p != <span class="literal">NULL</span>||!<span class="built_in">isEmpty</span>(S)) &#123;</span><br><span class="line">      <span class="keyword">if</span>(p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">         <span class="comment">//将根节点入栈并在下一个循环访问左节点</span></span><br><span class="line">         <span class="built_in">Push</span>(S,p);</span><br><span class="line">         p=p-&gt;lchild;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="comment">//出栈根节点的同时访问根节点</span></span><br><span class="line">         <span class="built_in">Pop</span>(S,p);</span><br><span class="line">         <span class="built_in">visit</span>(p);</span><br><span class="line">         <span class="comment">//下一个循环访问右节点</span></span><br><span class="line">         p=p-&gt;rchild;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="先序遍历："><a href="#先序遍历：" class="headerlink" title="先序遍历："></a>先序遍历：</h4><p>先序遍历的实现与中序遍历相似，只需要在入栈时先访问根节点即可</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">PreOrder2</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">   <span class="built_in">InitStack</span>(S);</span><br><span class="line">   BiTree p = T;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span>(p != <span class="literal">NULL</span>||!<span class="built_in">isEmpty</span>(S)) &#123;</span><br><span class="line">      <span class="keyword">if</span>(p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">         <span class="comment">//访问根节点</span></span><br><span class="line">         <span class="built_in">visit</span>(p);</span><br><span class="line">         <span class="comment">//将根节点入栈并在下一个循环访问左节点</span></span><br><span class="line">         <span class="built_in">Push</span>(S,p);</span><br><span class="line">         p=p-&gt;lchild;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="comment">//出栈根节点</span></span><br><span class="line">         <span class="built_in">Pop</span>(S,p);</span><br><span class="line">         <span class="comment">//下一个循环访问右节点</span></span><br><span class="line">         p=p-&gt;rchild;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h4><p>后序遍历算法思想与之前两种不同，需要保证在根节点出栈时右节点已被访问完。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">PostOrder</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">   <span class="built_in">InitStack</span>(S);</span><br><span class="line">   p=T;</span><br><span class="line">   r=<span class="literal">NULL</span>;  <span class="comment">//用于记录最近访问过的结点</span></span><br><span class="line">   <span class="keyword">while</span>(p != <span class="literal">NULL</span>||!<span class="built_in">IsEmpty</span>(S)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (p) &#123;</span><br><span class="line">         <span class="built_in">Push</span>(S,p);</span><br><span class="line">         <span class="comment">//走到最左边</span></span><br><span class="line">         p=p-&gt;lchild;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="comment">//获取根节点</span></span><br><span class="line">         <span class="built_in">Peek</span>(S,p);</span><br><span class="line">         <span class="keyword">if</span>(p-&gt;rchild != <span class="literal">NULL</span>&amp;&amp;p-&gt;rchild != r) &#123;</span><br><span class="line">         <span class="comment">//走到右边</span></span><br><span class="line">         p=p-&gt;rchild;</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="built_in">Pop</span>(S,p);</span><br><span class="line">         <span class="built_in">visit</span>(p);</span><br><span class="line">         r=p;</span><br><span class="line">         p=<span class="literal">NULL</span>;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h4><p>需要借助队列实现，每访问一个节点就将该节点的孩子节点输入队列，并将该节点出队</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">LevelOrder</span><span class="params">(BiTree T)</span> </span>&#123;</span><br><span class="line">   <span class="built_in">InitQueue</span>(Q);</span><br><span class="line">   BiTree p;</span><br><span class="line">   <span class="built_in">EnQueue</span>(Q,T);</span><br><span class="line">   <span class="keyword">while</span>(!<span class="built_in">IsEmpty</span>(Q)) &#123;</span><br><span class="line">      <span class="built_in">DeQueue</span>(Q,p);</span><br><span class="line">      <span class="built_in">visit</span>(p);</span><br><span class="line">      <span class="keyword">if</span>(p-&gt;lchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">         <span class="built_in">EnQueue</span>(Q,p-&gt;lchild);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(p-&gt;rchild != <span class="literal">NULL</span>) &#123;</span><br><span class="line">         <span class="built_in">EnQueue</span>(Q,p-&gt;rchild);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="由遍历序列构建二叉树"><a href="#由遍历序列构建二叉树" class="headerlink" title="由遍历序列构建二叉树"></a>由遍历序列构建二叉树</h4><ul>
+<li>二叉树的先序序列和中序序列可以唯一确定一颗二叉树<ul>
+<li>先序遍历中第一个结点一定是二叉树的根节点；中序遍历中，根节点必然将中序序列分割为两个子序列，前一个子序列是根节点的左子树的中序序列，后一个子序列是根节点的右子树的中序序列。</li>
+</ul>
+</li>
+<li>二叉树的后序序列和中序序列也可以唯一确定一颗二叉树</li>
+<li>二叉树的层序序列和中序序列也可以唯一确定一颗二叉树</li>
+</ul>
+<p> 除了先序序列和后序序列其余两种任意序列的组合都可以构建出二叉树。构建二叉树需要明确知道根节点和左右子树，而先序序列和后序序列无法确定左右子树。</p>
+</li>
+<li><p>二叉排序（查找. 检索）树  </p>
+</li>
+<li><p>平衡的二叉检索树- AVL树  </p>
+</li>
+<li><p>堆  </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> DEFAULT_DATA_SIZE 10</span></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">* 大顶堆</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Heap</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">   <span class="comment">/* data */</span></span><br><span class="line">   T* _data;</span><br><span class="line">   <span class="type">size_t</span> _max_size = <span class="number">0</span>;</span><br><span class="line">   <span class="type">size_t</span> size = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">   <span class="type">size_t</span> _get_left_child_index(<span class="type">size_t</span> index) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">2</span>*index+<span class="number">1</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="type">size_t</span> _get_right_child_index(<span class="type">size_t</span> index) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">2</span>*index+<span class="number">2</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="type">size_t</span> _get_root_index(<span class="type">size_t</span> index) &#123;</span><br><span class="line">      <span class="keyword">return</span> (index<span class="number">-1</span>)/<span class="number">2</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="type">bool</span> _is_empty() &#123;</span><br><span class="line">      <span class="keyword">return</span> size == <span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="type">bool</span> _is_full() &#123;</span><br><span class="line">      <span class="keyword">return</span> size == _max_size;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="type">void</span> _alloc() &#123;</span><br><span class="line">      T* tmp = _data;</span><br><span class="line">      _data = <span class="keyword">new</span> T[_max_size*<span class="number">2</span>];</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; _max_size; i++)</span><br><span class="line">      &#123;</span><br><span class="line">            _data[i] = tmp[i];</span><br><span class="line">      &#125;</span><br><span class="line">      _max_size *= <span class="number">2</span>;</span><br><span class="line">      <span class="keyword">delete</span>[] tmp;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="type">void</span> _shiftUp(<span class="type">size_t</span> index) &#123;</span><br><span class="line">      <span class="keyword">if</span> (index == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">      <span class="type">size_t</span> root = _get_root_index(index);</span><br><span class="line">      <span class="keyword">if</span> (_data[root] &lt; _data[index])</span><br><span class="line">      &#123;</span><br><span class="line">            T tmp = _data[root];</span><br><span class="line">            _data[root] = _data[index];</span><br><span class="line">            _data[index] = tmp;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      _shiftUp(root);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="type">void</span> _shiftDown(<span class="type">size_t</span> index) &#123;</span><br><span class="line">      <span class="keyword">if</span> (index == size) <span class="keyword">return</span>;</span><br><span class="line">      <span class="type">size_t</span> lc = _get_left_child_index(index);</span><br><span class="line">      <span class="type">size_t</span> rc = _get_right_child_index(index);</span><br><span class="line">      <span class="type">size_t</span> max = lc &gt; rc ? lc : rc;</span><br><span class="line">      <span class="keyword">if</span> (_data[max] &gt; _data[index])</span><br><span class="line">      &#123;</span><br><span class="line">            T tmp = _data[max];</span><br><span class="line">            _data[max] = _data[index];</span><br><span class="line">            _data[index] = tmp;</span><br><span class="line">            _shiftDown(lc);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">explicit</span> <span class="title">Heap</span><span class="params">(<span class="type">size_t</span> max_size = DEFAULT_DATA_SIZE)</span> </span>&#123;</span><br><span class="line">      _max_size = max_size;</span><br><span class="line">      _data = <span class="keyword">new</span> T[_max_size];</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   ~<span class="built_in">Heap</span>() &#123;</span><br><span class="line">      <span class="keyword">delete</span>[] _data;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (_is_full())</span><br><span class="line">      &#123;</span><br><span class="line">            _alloc();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      _data[size] = data;</span><br><span class="line">      _shiftUp(size);</span><br><span class="line">      size++;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function">T <span class="title">removeAt</span><span class="params">(<span class="type">size_t</span> index)</span> </span>&#123;</span><br><span class="line">      T data = _data[index];</span><br><span class="line">      _data[index] = _data[--size];</span><br><span class="line">      _shiftDown(index);</span><br><span class="line">      <span class="keyword">return</span> data;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function">T <span class="title">remove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">removeAt</span>(<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="type">size_t</span> <span class="title">length</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> size;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="type">size_t</span> <span class="title">getMaxSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> _max_size;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function">std::string <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      std::string s = <span class="string">&quot;[&quot;</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">      &#123;</span><br><span class="line">            s += <span class="built_in">to_string</span>(*(_data+i));</span><br><span class="line">            <span class="keyword">if</span> (i != size<span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">               s += <span class="string">&quot; ,&quot;</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               s += <span class="string">&quot;] size = &quot;</span>+<span class="built_in">to_string</span>(size) + <span class="string">&quot; max_size = &quot;</span>+<span class="built_in">to_string</span>(_max_size);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> s;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>哈夫曼（Huffman）树和哈夫曼编码</p>
+</li>
+</ol>
+<h3 id="（二）树"><a href="#（二）树" class="headerlink" title="（二）树"></a>（二）树</h3><ol>
+<li><p>树的定义与术语  </p>
+<h4 id="树的定义"><a href="#树的定义" class="headerlink" title="树的定义"></a>树的定义</h4><p>树是$n(n \geq 0)$个节点的有限集。当$n&#x3D;0$时，称为空树。在任意一颗空树中应满足：</p>
+<ul>
+<li>有且只有一个特定称为根的节点</li>
+<li>当$n &gt; 1$时，其余节点可分为$m (m&gt;0)$个互不相交的有限集$T_1,T_2,…,T_m$，其中每个集合本身又是一棵树，并且称为根的子树。</li>
+</ul>
+<p>显然，树的定义是递归的，即在书的定义中又用到了自身，树是一种递归的数据结构。树作为一种逻辑结构，同时也是一种分层结构，具有以下两个特点：</p>
+<ul>
+<li>树的根节点没有前驱，除根节点外的所有节点有且只有一个前驱。</li>
+<li>树的所有节点可以有零个或多个后继。</li>
+</ul>
+<p>树适合于表示具有层次的数据。树中的某个节点（除根节点外）最多只和上一层的一个节点（即其父节点）有直接关系，根节点没有直接上层节点，因此在$n$个节点的树中有$n-1$条边。而树中每个节点与其下一层的零个或多个节点（即其子女节点）有直接关系。</p>
+<h4 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h4><ul>
+<li>树中一个节点的孩子个数称为该节点的度，<strong>树中节点的最大度数称为树的度</strong>。</li>
+<li>度大于0的节点称为<em>分支节点</em>，度为0的节点称为<em>叶子节点</em>。在分支结点中，每个结点的分支数就是该结点的度。</li>
+<li>结点的深度、高度和层次</li>
+<li>结点的深度是从根节点开始自顶向下逐层累加的</li>
+<li>结点的高度是从叶节点开始自底向上逐层累加的</li>
+<li>树的高度是树中节点的最大层数</li>
+<li>有序树和无序树</li>
+<li>有序树：树中的结点的各子树从左到右是有次序的，不能互换（次序人为规定）</li>
+<li>无序树：否则成为无序树</li>
+<li>路径和路径长度</li>
+<li>路径：由树中这两个结点之间所经过的结点序列构成的</li>
+<li>路径长度：路径所经过的边的数量</li>
+<li>森林是$m(m \geq 0)$棵互不相交的树的集合。森林的概念与树的概念十分相近，因为只要把树的根节点删去就成了森林。反之，只要给$m$棵独立的树加上一个结点，并把这$m$棵树作为该节点的子树，则森林就变成了树</li>
+</ul>
+<p>树具有如下基本性质：</p>
+<ul>
+<li>树中的节点数等于所有结点度数之和加1</li>
+<li>度为$m$的树中第$i$层上至多有$m^{i-1} \ \ (i \geq 1)$</li>
+<li>高度为$h$的$m$叉树最多有$(m^k -1)&#x2F;(m-1)$个节点</li>
+<li>具有$n$个结点的$m$叉树的最小高度为$\log_m(n(m-1)+1)$</li>
+</ul>
+</li>
+<li><p>树的遍历  </p>
+</li>
+<li><p>树的顺序存储结构和链式存储结构实现</p>
+</li>
+</ol>
+<hr>
+<h2 id="四-图"><a href="#四-图" class="headerlink" title="四. 图"></a>四. 图</h2><h3 id="（一）图的基本概念"><a href="#（一）图的基本概念" class="headerlink" title="（一）图的基本概念"></a>（一）图的基本概念</h3><p>图G由顶点集V和边集E组成，记为$G&#x3D;(V,E)$，其中$V(G)$表示图G中顶点的有限非空集；$E(G)$表示图中顶点之间的关系（边）集合。</p>
+<p><code>线性表可以是空表、树可以有空树，但图不能是空图，图中至少有一个节点，但可以没有边</code></p>
+<ol>
+<li><p>有向图<br>若E是有向边(弧)的有限集合时，图G为有向图，。弧是顶点的有序对，记为&lt;v,w&gt;，其中v,w是顶点，v称为弧尾，w称为弧头。也称v邻接到w。</p>
+</li>
+<li><p>无向图<br>若E是无向边(边)的有限集合时，图G为无向图。边是顶点的无序对，记为(v,w)或(w,v)。可以说w和v互为邻接点。</p>
+</li>
+<li><p>简单图、多重图<br> 一个图若满足：</p>
+<ol>
+<li>不存在重复边</li>
+<li>不存在顶点到自身的边</li>
+</ol>
+<p>则称该图为简单图。<br>若图中某两个顶点之间的边数大于1，又允许顶点通过一条边和自身关联，则称该图为多重图。</p>
+</li>
+<li><p>完全图（简单完全图）<br>对于无向图，|E|的取值范围在0<del>$n(n-1)&#x2F;2$之间，有$n(n-1)&#x2F;2$条边的无向图称为完全图，在完全图中任意两个顶点之间都存在边；对于有向图，|E|的取值范围在0</del>$n(n-1)$之间，有$n(n-1)$条边的有向图称为完全有向图，有向完全图中任意两个顶点之间都存在方向相反的两条弧。</p>
+</li>
+<li><p>子图<br>若存在一个$G’&#x3D;(V’,E’)$使得$V’$是$V$的子集，$E’$是$E$的子集，则将$G’$称为$G$的子图。若$V’&#x3D;V$，则将$G’$称为$G$的生成子图。</p>
+</li>
+<li><p>连通、连通图和连通分量(特指无向图)</p>
+</li>
+</ol>
+<ul>
+<li>连通：在无向图中，若从顶点v到顶点w有路径存在，则称v和w是连通的。</li>
+<li>连通图：若图中任意两个顶点都是连通的，则称该图为连通图，否则便是非连通图。</li>
+<li>连通分量：无向图中的极大连通子图称为该图的连通分量。(极大连通子图即该图的连通子图且该子图拥有的顶点数无法再增加，若增加就不在连通，且包含所有边)</li>
+</ul>
+<ol start="7">
+<li>强连通图、强连通分量(特指有向图)</li>
+</ol>
+<ul>
+<li>强连通：<strong>有向图</strong>中若v到w和w到v之间都存在路径，则称这两个顶点是强连通的。</li>
+<li>强连通图：有向图中的任意两个结点都是强连通的，则该图称为强连通图。</li>
+<li>强连通分量：有向图中的极大强连通子图。</li>
+</ul>
+<ol start="8">
+<li>生成树、生成森林</li>
+</ol>
+<ul>
+<li>生成树：包含图中所有结点的一个极小连通图。<strong>若图中有n个顶点，则生成树有n-1条边</strong>(极小连通图需要保证的是图的连通且边数最少)(若砍去生成树中的一条边，则该极小连通图退化为非连通图，若加上一条边则会产生一个回路)</li>
+<li>生成森林：非连通图中的连通子图的生成树构成了一片生成森林。</li>
+</ul>
+<ol start="9">
+<li>顶点的度、出度、入度</li>
+</ol>
+<ul>
+<li>度：依附于顶点的边的条数，记为$TD(v)$。对于具有n个顶点、e条边的无向图，所有顶点的度之和为2e(一条边代表两个度嘛)。有向图的顶点的度为该顶点出度和入度之和。</li>
+<li>入度：在有向图中以顶点v为终点的边的数目，记为$ID(v)$</li>
+<li>出度：在有向图中以顶点v为起点的边的数目，记为$OD(v)$</li>
+<li>在有向图中所有顶点的出度和等于所有顶点的入度和</li>
+</ul>
+<ol start="10">
+<li>边的权和网</li>
+</ol>
+<ul>
+<li>权值：每条边都可以标注具有某种意义的数值，该值称为权值</li>
+<li>网： 边上带有权值的图称为带权图，或<strong>网</strong></li>
+</ul>
+<ol start="11">
+<li>稠密图、稀疏图</li>
+</ol>
+<ul>
+<li>稀疏图：边数很少的图</li>
+<li>稠密图：边数很多的图</li>
+<li>判断条件：$|E| &lt; |V|log|V|$，则为稀疏图</li>
+</ul>
+<ol start="12">
+<li>路径、路径长度、回路</li>
+</ol>
+<ul>
+<li>路径:顶点$v_p$到$v_q$之间的一条路径指顶点序列$v_p,v_i1,v_i2,…,v_in,v_1$</li>
+<li>路径长度：路径上边的数量</li>
+<li>回路：第个顶点和最后一个顶点相同的路径称为回路。若一个图有n个顶点，但有大于n-1条边，则此图一定存在回路。</li>
+</ul>
+<ol start="14">
+<li><p>距离<br>从顶点u出发到v的最短路径长度，若该路径不存在，则距离为无穷∞</p>
+</li>
+<li><p>有向树<br>一个顶点的入度为0、其余顶点的入度均为1 的图称为有向树。</p>
+<h3 id="（二）图的存储及基本操作"><a href="#（二）图的存储及基本操作" class="headerlink" title="（二）图的存储及基本操作"></a>（二）图的存储及基本操作</h3></li>
+<li><p>邻接矩阵<br> 采用一个一维数组存储图中顶点的信息，用一个二维数组存储图中边的信息(即各个顶点之间的关系)，存储顶点之间邻接关系的二维数组称为邻接矩阵。<br><code>点中的数据使用一维数组保存，一维数组下表代表顶点编号，边使用二维数组保存，边的两个端点即二维数组的两个下标，由于这两个下标有ij和ji两种排列状态，故可以表示有向图。若为无向图时，该矩阵为对称矩阵。二维数组中的值代表有无边或者边的权值</code></p>
+<p>代码定义如下</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxVertexNum 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> VertesType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> EdgeType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">   VertexType vex[MaxVertNum]; <span class="comment">//顶点表，存数据</span></span><br><span class="line">   EdgeType Edge[MaxVertexNum][MaxVertexNum]; <span class="comment">//邻接表</span></span><br><span class="line">   <span class="type">int</span> vexnum,arcnum; <span class="comment">//图的当前顶点数和弧数</span></span><br><span class="line">&#125; MGraph;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在简单应用中，可以直接使用二维数组存储图，即忽略掉图的顶点信息</li>
+<li>当邻接矩阵的元素仅表示相应边是否存在时，EdgeType可采用值为0和1的枚举类型</li>
+<li>无向图的邻接矩阵是对称矩阵，对规模大的图可以压缩存储</li>
+<li>邻接矩阵表示法的空间复杂度为$O(n^2)$，其中n为图的顶点数</li>
+</ul>
+<p>特点：</p>
+<ol>
+<li>无向图的邻接矩阵一定是一个对称矩阵(并且唯一)</li>
+<li>对于无向图，邻接矩阵的第i行(或第i列)非零元素分个数正好是顶点i的度</li>
+<li>对于无向图，邻接矩阵的第i行非零元素的个数正好是顶点i的出度，第i列的非零元素刚好是顶点的入度</li>
+<li>用邻接矩阵存储图，很容易确定图中的任意两个顶点是否有边相连。但是，要确定图中有多少条边，则必须按行、列扫描检测，时间开销巨大。</li>
+<li>稠密图适合使用邻接表表示</li>
+</ol>
+</li>
+<li><p>邻接表</p>
+</li>
+</ol>
+<h3 id="（三）图的遍历"><a href="#（三）图的遍历" class="headerlink" title="（三）图的遍历"></a>（三）图的遍历</h3><ol>
+<li>深度优先搜索</li>
+<li>广度优先搜索</li>
+</ol>
+<h3 id="（四）图的应用"><a href="#（四）图的应用" class="headerlink" title="（四）图的应用"></a>（四）图的应用</h3><ol>
+<li>拓扑排序</li>
+<li>关键路径</li>
+<li>最短路径</li>
+<li>最小（代价）生成树</li>
+</ol>
+<hr>
+<h2 id="五-查找"><a href="#五-查找" class="headerlink" title="五. 查找"></a>五. 查找</h2><h3 id="（一）查找的基本概念"><a href="#（一）查找的基本概念" class="headerlink" title="（一）查找的基本概念"></a>（一）查找的基本概念</h3><ol>
+<li>查找：在数据集合中寻找满足某种条件的数据元素的过程称为查找。查找的结果一般分为两种：查找成功和失败</li>
+<li>查找表：用于查找的数据集合称为查找表，它由同一类型的数据元素(或记录)组成  </li>
+<li>静态查找表：若一个静态查找表只有查询指定数据和查找满足某个条件的数据的各种属性，无需动态地修改查找表，适合静态查找表的查找方法有：顺序查找，折半查找，散列查找等</li>
+<li>动态查找表：需要动态地添加和删除的查找表。适合动态查找表的查找方法有：二叉排序树查找，散列查找等</li>
+<li>关键字：数据元素中唯一标识该元素的某一个数据项的值，使用基于关键字的查找，查找结果应该是唯一的。</li>
+<li>平均查找长度：在查找过程中一次查找的长度是指需要比较的关键字次数，而平均查找长度则是所有查找过程中进行关键字的比较次数的平均值，其数学定义为$ASL &#x3D;  \sum_{i&#x3D;1}^{n}P_iC_i$ 式中，n是查找表的长度；$P_i$是查找第i个数据的概率，一般认为每个数据元素的查找概率均等，即$P_i &#x3D; 1&#x2F;n$；$C_i$是找到第i个数据元素需要的比较次数。平均查找长度是衡量查找算法效率的最主要指标</li>
+</ol>
+<h3 id="（二）顺序查找法"><a href="#（二）顺序查找法" class="headerlink" title="（二）顺序查找法"></a>（二）顺序查找法</h3><h3 id="（三）折半查找法-二分查找"><a href="#（三）折半查找法-二分查找" class="headerlink" title="（三）折半查找法(二分查找)"></a>（三）折半查找法(二分查找)</h3><h3 id="（五）散列（Hash）表及冲突解决策略"><a href="#（五）散列（Hash）表及冲突解决策略" class="headerlink" title="（五）散列（Hash）表及冲突解决策略"></a>（五）散列（Hash）表及冲突解决策略</h3><ol>
+<li>构造方法<ol>
+<li>直接定址法<ol>
+<li>H(key) &#x3D; key 或 H(Key) &#x3D; a*key + b</li>
+<li>适合关键字分布连续的情况</li>
+</ol>
+</li>
+<li>除留余数法<ol>
+<li>假定散列表长为m ,取一个不大于m 但最接近或等于m 的质数p ，将关键字按照公式$H(key)&#x3D;key%p$  转换为散列地址，需要选好p ，使得每个关键字通过函数转换后等概率地映射到散列空间上</li>
+</ol>
+</li>
+<li>数字分析法<ol>
+<li>设关键字是r进制数，而r 个数码在各位上出现的频率不一定相同，可能在某些位上分布的更均匀一些，每种数码出现的机会均等；而在某些位上分布不均匀，只有某几种数码经常出现，此时应选取数码分布较为均匀的若干位作为散列地址，这种发给发适用于已经知道关键字的集合，因为一旦关键字被修改，则需要重新构造一个新的散列函数</li>
+</ol>
+</li>
+<li>平方取中法<ol>
+<li>取关键字的平方值的中间几位作为散列地址。具体取多少位要视情况而定。这种方法得到的散列地址与关键字的每一位都有关系，所以可以使得散列地址分布比较均匀。适用于关键字的每位取值都不够均匀或者均小于散列地址所需要的位数</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>冲突解决策略<ol>
+<li>开放定址法<ol>
+<li>可存放新表项(Entry) 的空闲地址空间既向它的同义词表项开放，又向非同义词表项开放。记为$H_i&#x3D;(H(key)+d_i)%m$ ，式子中$H(key)$表示散列函数；$i&#x3D;0,1,2,3,…,k  (k\leq m-1)$；$m$ 表示散列表长；$d_i$表示增量序列。</li>
+<li>增量序列确定后，对应的处理方法就是确定的。通常有如下四种方法：<ol>
+<li>线性探测法。当$d_i&#x3D;0，1，2，3，。。。，m-1$时，称为线性探测法，这种方法的特点是：冲突发生时，顺序查看表中下一个单元(到达表的末尾$m-1$时，下一个探测地址就是表首地址0)，直到查找出一个空闲单元(表未填满时一定会找到一个空闲单元)或查遍全表。线性探测法可能使第i个散列地址的同义词存入第i+1个散列地址，这样本应存入第i+1个散列地址的同义词就只能存入i+2个散列地址，从而造成大量元素在相邻散列地址上“聚集”，极大降低了查找效率</li>
+<li>平方探测法(二次探测法)。增量序列$d_i&#x3D;0^2,1^2,-1^2,2^2,-2^2,…,k^2,-k^2$$(k\leq m&#x2F;2)$ 。散列表的长度必须是可以表示为4k+3的素数。平方探测法处理冲突可以避免出现“堆积”问题，缺点是不能探测到所有单元，但至少能探测到一半的单元</li>
+<li>再散列法(双散列法)。$d_i &#x3D; Hash_2(key)$，当第一个散列函数发生冲突时，通过第二个散列函数计算该关键字的地址增量$H_i&#x3D;(H(key)+i*H_2(key))%m$ 其中i是发生冲突的次数，初始为0。最多经过$m-1$次探测便可以遍历表中所有的位置</li>
+<li>伪随机散列法。将$d_i$设置为伪随机数列。</li>
+</ol>
+</li>
+<li><code>在开放定址法中，不能随便物理删除表中元素，若删除元素，则会截断其它具有相同散列地址的元素的查找地址。因此，要删除一个元素时，可以给它做一个删除标记，进行逻辑删除。但是这样就需要定期维护散列表将其中被标记删除的元素进行物理删除</code></li>
+</ol>
+</li>
+<li>拉链法<ol>
+<li>为了避免非同义词产生冲突，可以通过把所有同义词存储到一个线性链表中，这个线性链表再由其散列地址唯一标识。适用于对数据进行大量删除和插入操作的情况</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="（六）查找算法的分析及应用"><a href="#（六）查找算法的分析及应用" class="headerlink" title="（六）查找算法的分析及应用"></a>（六）查找算法的分析及应用</h3><hr>
+<h2 id="六-内排序"><a href="#六-内排序" class="headerlink" title="六. 内排序"></a>六. 内排序</h2><h3 id="（一）排序的基本概念"><a href="#（一）排序的基本概念" class="headerlink" title="（一）排序的基本概念"></a>（一）排序的基本概念</h3><p>排序：指重新排列表中的元素，使表中的元素满足按关键字有序的过程。</p>
+<p>排序算法的稳定性：若待排序表中有两个元素$R_i$和$R_j$，其对应关键字相同即$key_i &#x3D; key_j$，且在排序前$R_i$在$R_j$前面，若使用某一排序算法排序后，$R_i$仍然在$R_j$前面，则称这个算法使稳定的，否则这个算法就是不稳定的</p>
+<p>在排序过程中根据数据元素是否完全在内存中可以将算法分为两类：<code>内部排序</code>和<code>外部排序</code></p>
+<ul>
+<li>内部排序：指在排序期间所有元素全部放在内存中的排序</li>
+<li>外部排序：指在排序期间元素无法全部同时存放在内存中，必须在排序的过程中根据要求不断地在内、外存之间移动的排序。</li>
+</ul>
+<h3 id="（二）直接插入排序"><a href="#（二）直接插入排序" class="headerlink" title="（二）直接插入排序"></a>（二）直接插入排序</h3><h3 id="（三）冒泡排序"><a href="#（三）冒泡排序" class="headerlink" title="（三）冒泡排序"></a>（三）冒泡排序</h3><h3 id="（四）简单选择排序"><a href="#（四）简单选择排序" class="headerlink" title="（四）简单选择排序"></a>（四）简单选择排序</h3><h3 id="（五）希尔排序（shell-sort）"><a href="#（五）希尔排序（shell-sort）" class="headerlink" title="（五）希尔排序（shell sort）"></a>（五）希尔排序（shell sort）</h3><h3 id="（六）快速排序"><a href="#（六）快速排序" class="headerlink" title="（六）快速排序"></a>（六）快速排序</h3><h3 id="（七）堆排序"><a href="#（七）堆排序" class="headerlink" title="（七）堆排序"></a>（七）堆排序</h3><h3 id="（八）归并排序"><a href="#（八）归并排序" class="headerlink" title="（八）归并排序"></a>（八）归并排序</h3><h3 id="（九）基数排序"><a href="#（九）基数排序" class="headerlink" title="（九）基数排序"></a>（九）基数排序</h3><h3 id="（十）各种内排序算法的比较"><a href="#（十）各种内排序算法的比较" class="headerlink" title="（十）各种内排序算法的比较"></a>（十）各种内排序算法的比较</h3><h3 id="（十一）内排序算法的应用"><a href="#（十一）内排序算法的应用" class="headerlink" title="（十一）内排序算法的应用"></a>（十一）内排序算法的应用</h3>]]></content>
+      <categories>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>数据结构 Review</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库系统</title>
+    <url>/2022/04/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h1 id="数据库（数据仓库）"><a href="#数据库（数据仓库）" class="headerlink" title="数据库（数据仓库）"></a>数据库（数据仓库）</h1><p>数据库是<code>长期储存</code>在计算机内、有组织的、可共享的大量数据的集合</p>
+<p>数据库中的数据按照一定的数据模型组织、描述、存储。具有较小冗余度、较高数据独立性和易扩展性，并且可以为各种用户共享。</p>
+<p>数据库的基本特点：  </p>
+<ol>
+<li>永久存储</li>
+<li>有组织</li>
+<li>可共享</li>
+</ol>
+<h2 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h2><p>用户通过数据库管理系统操作数据库，数据库管理系统将操作系统的接口封装，为用户提供数据的定义、组织、存储、管理、操纵、数据库的事务管理和运行、数据库的建立和维护等工作。</p>
+<h2 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h2><p>数据库系统内包含数据库、数据库管理系统、应用程序和数据库管理员。</p>
+<p>数据库系统是用于存储、管理、处理和维护数据的系统</p>
+<p><code>数据库系统与文件系统的区别：数据的结构化</code></p>
+<h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><p>概念模型：对数据和信息的建模<br>逻辑模型：数据之间的逻辑结构组成的模型<br>物理模型：物理机上存储的模型  </p>
+<h3 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h3><ul>
+<li>实体(Entity)：客观存在并可以互相区别的事务</li>
+<li>属性(Attribute)：实体的某一特性</li>
+<li>码(Key)：唯一标识实体的属性集</li>
+<li>实体型(Entity Set)：同一类型实体的集合</li>
+<li>联系(Relationship)：实体之间的联系，通常指不同<code>实体集</code>之间的联系</li>
+</ul>
+<h3 id="E-R图"><a href="#E-R图" class="headerlink" title="E-R图"></a>E-R图</h3><p><img src="/../gallery/ER-example.jpeg" alt="E-R Example"></p>
+]]></content>
+      <categories>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>数据库 Review</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/04/08/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
 </search>
