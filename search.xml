@@ -3,7 +3,9 @@
   <entry>
     <title>Android 字节码解析</title>
     <url>/2022/04/08/Android-%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="Dalvik字节码格式"><a href="#Dalvik字节码格式" class="headerlink" title="Dalvik字节码格式"></a>Dalvik字节码格式</h2><p>move vA, vB</p>
+    <content><![CDATA[<h2 id="将APK反编译到Smali"><a href="#将APK反编译到Smali" class="headerlink" title="将APK反编译到Smali"></a>将APK反编译到Smali</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apktool d app.apk</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dalvik字节码格式"><a href="#Dalvik字节码格式" class="headerlink" title="Dalvik字节码格式"></a>Dalvik字节码格式</h2><p>move vA, vB</p>
 ]]></content>
       <categories>
         <category>开发</category>
