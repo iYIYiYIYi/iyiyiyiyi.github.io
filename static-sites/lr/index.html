@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>自底向上语法分析</title>
+    <script src="script/main.js"></script>
+    <script src="script/lr0.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/util/jquery.min.js"></script>
+    <script src="script/util/viz.js/viz.js"></script>
+    <script src="script/util/viz.js/viz.es.js"></script>
+    <script src="script/util/viz.js/lite.render.js"></script>
+</head>
+<body>
+    <h2>自底向上语法分析</h2>
+    <h3>请输入文法:</h3>
+    <div class="std-tip-l">
+        <h3>示例文法：(Epsilon:ε)</h3>
+        <h5>终结符与非终结符之间有空格</h5>
+        <p class="std-tip-p">
+                S-> v I : T <br>
+                I-> I , i | i<br>
+                T-> r<br>
+        </p>
+        或
+        <p class="std-tip-p">
+            S-> a A d | a B e<br>
+            A-> c<br>
+            B-> b<br>
+        </p>
+    </div>
+
+    <div class="std-ctn">
+<!--        要分析的文法语句-->
+        <textarea class="std-ta" id="text" placeholder="文法："></textarea>
+        <textarea class="std-ta" id="grammar" placeholder="分析语句："></textarea>
+
+        <button class="std-btn" onclick="getG()">确认</button>
+    </div>
+
+    <div class="std-tip-r">
+        <button class="std-btn" id="table" onclick="drawTable()">分析表</button>
+        <button class="std-btn" id="stack" onclick="drawStack()">分析栈</button>
+    </div>
+
+    <div id="graph" class="std-float-panel" style="display: none">
+        <h1>请输入文法</h1>
+    </div>
+</body>
+</html>
