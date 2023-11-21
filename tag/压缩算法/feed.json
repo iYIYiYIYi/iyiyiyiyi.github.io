@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "ClaRn'S BLOG • All posts by \"压缩算法\" tag",
+    "description": "当你在浪费时间的事情里获得了快乐，那就不是在浪费时间。 ——罗素",
+    "home_page_url": "https://iyiyiyiyi.github.io",
+    "items": [
+        {
+            "id": "https://iyiyiyiyi.github.io/post/LZ77%E7%BC%96%E7%A0%81%E5%92%8C%E7%B1%BBLZW%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95.html",
+            "url": "https://iyiyiyiyi.github.io/post/LZ77%E7%BC%96%E7%A0%81%E5%92%8C%E7%B1%BBLZW%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95.html",
+            "title": "LZ77编码和类LZW压缩算法",
+            "date_published": "2023-11-17T08:26:11.000Z",
+            "content_html": "<h1 id=\"lz77编码\"><a class=\"markdownIt-Anchor\" href=\"#lz77编码\"></a> LZ77编码</h1>\n",
+            "tags": [
+                "压缩算法"
+            ]
+        }
+    ]
+}

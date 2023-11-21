@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "ClaRn'S BLOG • All posts by \"开发\" category",
+    "description": "当你在浪费时间的事情里获得了快乐，那就不是在浪费时间。 ——罗素",
+    "home_page_url": "https://iyiyiyiyi.github.io",
+    "items": [
+        {
+            "id": "https://iyiyiyiyi.github.io/post/Android-%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E6%9E%90.html",
+            "url": "https://iyiyiyiyi.github.io/post/Android-%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E6%9E%90.html",
+            "title": "Android 字节码解析",
+            "date_published": "2022-04-07T16:39:09.000Z",
+            "content_html": "<h2 id=\"将apk反编译到smali\"><a class=\"markdownIt-Anchor\" href=\"#将apk反编译到smali\"></a> 将APK反编译到Smali</h2>\n<pre class=\"highlight\"><code class=\"shell\">apktool d app.apk\n</code></pre>\n<h2 id=\"dalvik字节码格式\"><a class=\"markdownIt-Anchor\" href=\"#dalvik字节码格式\"></a> Dalvik字节码格式</h2>\n<pre class=\"highlight\"><code class=\"shell\">move vA, vB\n</code></pre>\n",
+            "tags": [
+                "Android"
+            ]
+        }
+    ]
+}

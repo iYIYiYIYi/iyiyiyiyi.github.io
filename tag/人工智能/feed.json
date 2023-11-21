@@ -1,0 +1,20 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "ClaRn'S BLOG • All posts by \"人工智能\" tag",
+    "description": "当你在浪费时间的事情里获得了快乐，那就不是在浪费时间。 ——罗素",
+    "home_page_url": "https://iyiyiyiyi.github.io",
+    "items": [
+        {
+            "id": "https://iyiyiyiyi.github.io/post/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE%E5%92%8Cn%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B.html",
+            "url": "https://iyiyiyiyi.github.io/post/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE%E5%92%8Cn%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8B.html",
+            "title": "马尔可夫链和隐马尔可夫模型",
+            "date_published": "2023-04-26T04:16:47.000Z",
+            "content_html": "<h2 id=\"马尔可夫性质\"><a class=\"markdownIt-Anchor\" href=\"#马尔可夫性质\"></a> 马尔可夫性质</h2>\n<p>马尔可夫链是由一个条件分布来表示的<span class=\"katex\"><span class=\"katex-mathml\"><math><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><msub><mi>X</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mi mathvariant=\"normal\">∣</mi><msub><mi>X</mi><mi>N</mi></msub><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(X_{n+1}|X_N)</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mord mathdefault\" style=\"margin-right:0.13889em;\">P</span><span class=\"mopen\">(</span><span class=\"mord\"><span class=\"mord mathdefault\" style=\"margin-right:0.07847em;\">X</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.301108em;\"><span style=\"top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathdefault mtight\">n</span><span class=\"mbin mtight\">+</span><span class=\"mord mtight\">1</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.208331em;\"><span></span></span></span></span></span></span><span class=\"mord\">∣</span><span class=\"mord\"><span class=\"mord mathdefault\" style=\"margin-right:0.07847em;\">X</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.32833099999999993em;\"><span style=\"top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathdefault mtight\" style=\"margin-right:0.10903em;\">N</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span><span class=\"mclose\">)</span></span></span></span> ，这被称为随机过程中的转移概率。马尔可夫链即符合马尔可夫性质的随机变量序列，最简化的马尔可夫链即只有一个X1的状态的转移链。在这些随机变量中，它们的当前状态，将来状态和过去状态是相互独立的。</p>\n<h2 id=\"马尔可夫链\"><a class=\"markdownIt-Anchor\" href=\"#马尔可夫链\"></a> 马尔可夫链</h2>\n<p>马尔可夫链是基于状态而言的，其性质有些类似有限状态自动机，但是与DFA之类的n有限状态自动机不同的是，在不同状态的转移之间并非是一个特定条件在进行约束，而是一个概率。状态机上所有的概率可以构成一个分布，名叫转移概率分布。</p>\n<p><img src=\"/gallery/markov/markov_sa.png\" alt=\"马尔可夫链状态机\" /></p>\n<h2 id=\"隐马尔可夫模型\"><a class=\"markdownIt-Anchor\" href=\"#隐马尔可夫模型\"></a> 隐马尔可夫模型</h2>\n<p>隐马尔可夫模型引入了“生成概率”的概念，每一个状态都有自己的生成概率分布，可以按照不同的概率产生一组可以被观测到的符号。在隐马尔可夫模型中，状态路径是无法直接看到的。</p>\n<p>在简单的马尔可夫模型（如马尔可夫链），所述状态是直接可见的观察者，因此状态转移概率是唯一的参数。在隐马尔可夫模型中，状态是不直接可见的，但输出依赖于该状态下，是可见的。每个状态通过可能的输出记号有了可能的概率分布。因此，通过一个HMM产生标记序列提供了有关状态的一些序列的信息。注意，“隐藏”指的是，该模型经其传递的状态序列，而不是模型的参数；即使这些参数是精确已知的，我们仍把该模型称为一个“隐藏”的马尔可夫模型。隐马尔可夫模型以它在时间上的模式识别所知，如语音，手写，手势识别，词类的标记，乐谱，局部放电和生物信息学应用。</p>\n<p><a href=\"https://www.coursera.org/learn/sheng-wu-xin-xi-xue/lecture/uekgI/yin-ma-er-ke-fu-mo-xing\">https://www.coursera.org/learn/sheng-wu-xin-xi-xue/lecture/uekgI/yin-ma-er-ke-fu-mo-xing</a></p>\n",
+            "tags": [
+                "生物信息学",
+                "算法",
+                "人工智能"
+            ]
+        }
+    ]
+}
