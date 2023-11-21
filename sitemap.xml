@@ -92,51 +92,6 @@
   </url>
   
   <url>
-    <loc>https://iyiyiyiyi.github.io/post/%E5%9B%BE%E5%83%8F%E7%89%B9%E5%BE%81.html</loc>
-    
-    <lastmod>2023-09-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://iyiyiyiyi.github.io/post/%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98.html</loc>
-    
-    <lastmod>2023-09-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://iyiyiyiyi.github.io/post/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B.html</loc>
-    
-    <lastmod>2023-09-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://iyiyiyiyi.github.io/post/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86.html</loc>
-    
-    <lastmod>2023-09-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://iyiyiyiyi.github.io/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.html</loc>
-    
-    <lastmod>2023-09-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://iyiyiyiyi.github.io/post/Android-%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E6%9E%90.html</loc>
     
     <lastmod>2023-09-19</lastmod>
@@ -155,7 +110,43 @@
   </url>
   
   <url>
-    <loc>https://iyiyiyiyi.github.io/categories/index.html</loc>
+    <loc>https://iyiyiyiyi.github.io/post/%E5%9B%BE%E5%83%8F%E7%89%B9%E5%BE%81.html</loc>
+    
+    <lastmod>2023-09-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://iyiyiyiyi.github.io/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.html</loc>
+    
+    <lastmod>2023-09-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://iyiyiyiyi.github.io/post/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B.html</loc>
+    
+    <lastmod>2023-09-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://iyiyiyiyi.github.io/post/%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98.html</loc>
+    
+    <lastmod>2023-09-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://iyiyiyiyi.github.io/post/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86.html</loc>
     
     <lastmod>2023-09-19</lastmod>
     
@@ -165,6 +156,15 @@
   
   <url>
     <loc>https://iyiyiyiyi.github.io/about/index.html</loc>
+    
+    <lastmod>2023-09-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://iyiyiyiyi.github.io/categories/index.html</loc>
     
     <lastmod>2023-09-19</lastmod>
     
@@ -182,14 +182,14 @@
 
   
   <url>
-    <loc>https://iyiyiyiyi.github.io/tags/%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://iyiyiyiyi.github.io/tags/Android/</loc>
     <lastmod>2023-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://iyiyiyiyi.github.io/tags/Android/</loc>
+    <loc>https://iyiyiyiyi.github.io/tags/%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2023-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -238,6 +238,20 @@
   </url>
   
   <url>
+    <loc>https://iyiyiyiyi.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2023-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://iyiyiyiyi.github.io/tags/Review/</loc>
+    <lastmod>2023-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://iyiyiyiyi.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</loc>
     <lastmod>2023-11-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -253,20 +267,6 @@
   
   <url>
     <loc>https://iyiyiyiyi.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2023-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://iyiyiyiyi.github.io/tags/Review/</loc>
-    <lastmod>2023-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://iyiyiyiyi.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2023-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -324,14 +324,14 @@
   </url>
   
   <url>
-    <loc>https://iyiyiyiyi.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/</loc>
+    <loc>https://iyiyiyiyi.github.io/categories/%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://iyiyiyiyi.github.io/categories/%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://iyiyiyiyi.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/</loc>
     <lastmod>2023-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

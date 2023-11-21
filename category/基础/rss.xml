@@ -7,19 +7,19 @@
         <language>zh-CN</language>
         <pubDate>Sun, 19 Nov 2023 03:45:25 +0800</pubDate>
         <lastBuildDate>Sun, 19 Nov 2023 03:45:25 +0800</lastBuildDate>
-        <category>压缩算法</category>
         <category>Android</category>
+        <category>压缩算法</category>
         <category>作业</category>
         <category>模式识别</category>
         <category>机器学习</category>
         <category>生物信息学</category>
         <category>算法</category>
         <category>动态规划</category>
+        <category>数据库</category>
+        <category>Review</category>
         <category>图像处理</category>
         <category>OpenCV</category>
         <category>操作系统</category>
-        <category>Review</category>
-        <category>数据库</category>
         <category>编译原理</category>
         <category>软件工程</category>
         <category>数据结构</category>
@@ -660,8 +660,8 @@ F(i,j)= max  \\left\\{
             <guid isPermalink="true">https://iyiyiyiyi.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.html</guid>
             <title>数据库系统</title>
             <link>https://iyiyiyiyi.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.html</link>
-            <category>Review</category>
             <category>数据库</category>
+            <category>Review</category>
             <pubDate>Fri, 08 Apr 2022 22:18:27 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;数据库数据仓库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库数据仓库&#34;&gt;&lt;/a&gt; 数据库（数据仓库）&lt;/h1&gt;
 &lt;p&gt;数据库是&lt;code&gt;长期储存&lt;/code&gt;在计算机内、有组织的、可共享的大量数据的集合&lt;/p&gt;
@@ -852,8 +852,8 @@ F(i,j)= max  \\left\\{
             <guid isPermalink="true">https://iyiyiyiyi.github.io/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.html</guid>
             <title>操作系统概述</title>
             <link>https://iyiyiyiyi.github.io/post/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.html</link>
-            <category>操作系统</category>
             <category>Review</category>
+            <category>操作系统</category>
             <pubDate>Fri, 08 Apr 2022 22:11:31 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;操作系统的特征&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作系统的特征&#34;&gt;&lt;/a&gt; 操作系统的特征&lt;/h2&gt;
 &lt;ol&gt;
