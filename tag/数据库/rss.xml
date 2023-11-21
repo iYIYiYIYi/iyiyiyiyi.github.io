@@ -15,21 +15,21 @@
         <category>生物信息学</category>
         <category>算法</category>
         <category>动态规划</category>
-        <category>数据库</category>
-        <category>Review</category>
         <category>图像处理</category>
         <category>OpenCV</category>
         <category>操作系统</category>
+        <category>Review</category>
+        <category>数据库</category>
+        <category>数据结构</category>
         <category>编译原理</category>
         <category>软件工程</category>
-        <category>数据结构</category>
         <category>人工智能</category>
         <item>
             <guid isPermalink="true">https://iyiyiyiyi.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.html</guid>
             <title>数据库系统</title>
             <link>https://iyiyiyiyi.github.io/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F.html</link>
-            <category>数据库</category>
             <category>Review</category>
+            <category>数据库</category>
             <pubDate>Fri, 08 Apr 2022 22:18:27 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;数据库数据仓库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库数据仓库&#34;&gt;&lt;/a&gt; 数据库（数据仓库）&lt;/h1&gt;
 &lt;p&gt;数据库是&lt;code&gt;长期储存&lt;/code&gt;在计算机内、有组织的、可共享的大量数据的集合&lt;/p&gt;
